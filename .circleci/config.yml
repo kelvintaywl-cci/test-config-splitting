@@ -49,7 +49,7 @@ orbs:
                 fi
 
                 # shellcheck disable=SC2016
-                xargs -a "${CONFIG_LIST_MODIFIED}" yq -y -s 'reduce .[] as $item ({}; . * $item)' | tee "${OUTPUT}"
+                xargs -a "${CONFIG_LIST_MODIFIED}" yq -Y -s 'reduce .[] as $item ({}; . * $item)' | tee "${OUTPUT}"
               environment:
                 CONFIG_LIST_ORIGINAL: << parameters.config-list-file >>
                 OUTPUT: << parameters.output >>
